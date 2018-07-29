@@ -8,8 +8,9 @@ namespace gclab10
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main(string[] args) 
         {
+            int count = 0;
             bool y = true;
             while (y)
             {
@@ -23,9 +24,10 @@ namespace gclab10
                 {
                     Console.WriteLine("You did not enter a valid number");
                 }
+                Circle userCircle = new Circle(userRadius);
 
-                Console.WriteLine("Circumfrence:" + Math.Round((2*Math.PI*userRadius),2));
-                Console.WriteLine("Area:" + Math.Round((Math.PI*Math.Pow(userRadius,2)),2));
+                Console.WriteLine("Circumfrence: " + userCircle.CalculateFormattedCircumfrence());
+                Console.WriteLine("Area: "+ userCircle.CalculateFormattedArea());
 
                 //Continue?
                 bool invalid = true;
@@ -39,9 +41,10 @@ namespace gclab10
 
                     invalid = !isY && !isN;
                     y = isY;
+                    count++;
                 }
             }
-            Console.WriteLine("Goodbye. You made x circle(s)");
+            Console.WriteLine($"Goodbye. You made {count} circle(s)");
             Console.ReadKey();
         }
     }
